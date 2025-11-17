@@ -1,0 +1,48 @@
+<button class="back-btn" (click)="goBack()">⬅ Torna ai campionati</button>
+
+<h2 class="title">📊 Classifica</h2>
+
+<div class="table-dashboard" *ngIf="table.length">
+  <div class="team-card" *ngFor="let t of table">
+    
+    <!-- Rank -->
+    <div class="team-rank">
+      #{{ t.intRank }}
+    </div>
+
+    <!-- Info + Bandiera -->
+    <div class="team-info">
+      <h3>{{ t.strTeam }}</h3>
+      <p>{{ t.intPoints }} punti</p>
+
+    
+      
+
+    <!-- Stats -->
+    <div class="team-stats">
+      <span>GF: {{ t.intGoalsFor }}</span>
+      <span>GS: {{ t.intGoalsAgainst }}</span>
+      <span>P: {{ t.intPlayed }}</span>
+    </div>
+
+  </div>
+</div>
+
+<h2 class="title">📅 Prossime Partite</h2>
+
+<div class="timeline">
+  <div class="event" *ngFor="let e of nextEvents">
+
+    <div class="event-date">
+      {{ e.dateEvent }}
+    </div>
+
+    <div class="event-match">
+      <span class="team">{{ e.strHomeTeam }}</span>
+      <span class="vs">VS</span>
+      <span class="team">{{ e.strAwayTeam }}</span>
+    </div>
+
+  </div>
+</div>
+

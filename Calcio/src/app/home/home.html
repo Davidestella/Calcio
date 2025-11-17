@@ -1,0 +1,71 @@
+<div class="home-header">
+  <h1 class="title">🏆 Campionati di Calcio</h1>
+
+  <!-- Barra di ricerca -->
+  <input 
+    type="text" 
+    placeholder="🔍 Cerca un campionato..." 
+    [(ngModel)]="searchText"
+    class="search-bar"
+  >
+</div>
+
+<div *ngIf="loading" class="loader"></div><div class="home-header">
+  <h1 class="title">🏆 Campionati di Calcio</h1>
+
+  <!-- Barra di ricerca -->
+  <input 
+    type="text" 
+    placeholder="🔍 Cerca un campionato..." 
+    [(ngModel)]="searchText"
+    class="search-bar"
+  >
+</div>
+
+<div *ngIf="loading" class="loader"></div>
+
+<!-- Griglia campionati -->
+<div class="league-grid">
+  <div 
+    *ngFor="let l of filteredLeagues()" 
+    class="league-card" 
+    (click)="openLeague(l.idLeague)"
+  >
+
+    <div class="flag-wrapper">
+      <img 
+        class="flag" 
+        [src]="'https://flagsapi.com/' + mapCountry(l.strCountry) + '/flat/64.png'"
+        onerror="this.src='https://cdn-icons-png.flaticon.com/512/197/197374.png'"
+      >
+    </div>
+
+    <h3 class="league-name">{{ l.strLeague }}</h3>
+    
+
+  </div>
+</div>
+
+
+<!-- Griglia campionati -->
+<div class="league-grid">
+  <div 
+    *ngFor="let l of filteredLeagues()" 
+    class="league-card" 
+    (click)="openLeague(l.idLeague)"
+  >
+
+    <div class="flag-wrapper">
+      <img 
+        class="flag" 
+        [src]="'https://flagsapi.com/' + mapCountry(l.strCountry) + '/flat/64.png'"
+        onerror="this.src='https://cdn-icons-png.flaticon.com/512/197/197374.png'"
+      >
+    </div>
+
+    <h3 class="league-name">{{ l.strLeague }}</h3>
+    
+
+  </div>
+</div>
+
